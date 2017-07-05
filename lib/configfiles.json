@@ -18,7 +18,7 @@
       "path", "name"
     ]
   },
-  "defaults": [
+  "default": [
     {
       "name": "Demo",
       "title": "Demo",
