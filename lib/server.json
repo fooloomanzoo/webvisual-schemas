@@ -105,7 +105,7 @@
           "default": "localhost"
         },
         "db": {
-          "type": ["string", "null", "number"],
+          "type": ["string", "null", "number"]
         }
       },
       "additionalProperties": false,
