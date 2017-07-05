@@ -1,0 +1,11 @@
+{
+  "name": "webvisual-config-schemata",
+  "version": "1.0.0",
+  "description": "schemata for configurations in webvisual and webvisual server",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "fooloomanzoo",
+  "license": "MIT"
+}

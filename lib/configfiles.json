@@ -1,0 +1,28 @@
+{
+  "type": "array",
+  "items": {
+    "type": "object",
+    "properties": {
+      "path": {
+        "type": "string"
+      },
+      "name": {
+        "type": "string"
+      },
+      "title": {
+        "type": ["string", "null"]
+      }
+    },
+    "additionalProperties": false,
+    "required": [
+      "path", "name"
+    ]
+  },
+  "defaults": [
+    {
+      "name": "Demo",
+      "title": "Demo",
+      "path": "./examples/config/test.json"
+    }
+  ]
+}
