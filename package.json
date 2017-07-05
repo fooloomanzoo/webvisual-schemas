@@ -1,6 +1,6 @@
 {
-  "name": "webvisual-config-schemata",
-  "version": "1.0.0",
+  "name": "webvisual-schemas",
+  "version": "0.1.0",
   "description": "schemata for configurations in webvisual and webvisual server",
   "main": "index.js",
   "scripts": {
