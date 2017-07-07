@@ -25,15 +25,15 @@
       "default": "localhost"
     },
     "db": {
-      "title": "Name",
-      "description": "Tabellenname der Datenbank im Datenbankserver",
-      "type": "string"
+      "title": "Nummer",
+      "description": "Tabellennummer der Datenbank im Datenbankserver",
+      "type": "number"
     }
   },
   "default": {
     "type": "redis",
     "port": 6379,
     "host": "localhost",
-    "db": "0"
+    "db": 0
   }
 }
