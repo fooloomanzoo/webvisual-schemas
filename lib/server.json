@@ -26,9 +26,8 @@
             "type": {
               "title": "Art",
               "description": "Name der Schnittstelle",
-              "enum": [
-                "ldap"
-              ]
+              "type": "string",
+              "enum": [ "ldap" ]
             },
             "baseDN": {
               "title": "baseDN",
@@ -94,6 +93,7 @@
         "type": {
           "title": "Typ",
           "description": "Art der Datenbank",
+          "type": "string",
           "enum": [ "redis", "" ],
           "enumNames": [ "REDIS", "Cache" ]
         },

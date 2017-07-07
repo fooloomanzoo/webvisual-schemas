@@ -1,12 +1,13 @@
 {
   "title": "Datenbankeinstellungen",
-  "description": "Verbindungseinstellungen zum Datenbankserver",
+  "description": "Verbindungseinstellungen des Datenbankservers",
   "type": "object",
   "required": [ "type" ],
   "properties": {
     "type": {
       "title": "Typ",
       "description": "Art der Datenbank",
+      "type": "string",
       "enum": [ "redis", "" ],
       "enumNames": [ "REDIS", "Cache" ]
     },
@@ -25,7 +26,7 @@
     },
     "db": {
       "title": "Name",
-      "description": "Name der Datenbank",
+      "description": "Tabellenname der Datenbank im Datenbankserver",
       "type": "string"
     }
   },
