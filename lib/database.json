@@ -8,7 +8,7 @@
       "title": "Typ",
       "description": "Art der Datenbank",
       "type": "string",
-      "enum": [ "redis", "" ],
+      "enum": [ "redis", "cache" ],
       "enumNames": [ "REDIS", "Cache" ]
     },
     "port": {

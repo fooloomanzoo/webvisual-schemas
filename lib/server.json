@@ -27,7 +27,8 @@
               "title": "Art",
               "description": "Name der Schnittstelle",
               "type": "string",
-              "enum": [ "ldap" ]
+              "enum": [ "ldap", "_" ],
+              "enumNames": [ "LDAP", " " ]
             },
             "baseDN": {
               "title": "baseDN",
@@ -61,26 +62,22 @@
         "cert": {
           "title": "Zertifikat",
           "description": "lokale Adresse der Zertifikatsdatei",
-          "type": "string",
-          "format": "uri"
+          "type": "string"
         },
         "key": {
           "title": "Schlüssel",
           "description": "lokale Adresse der Schlüsseldatei",
-          "type": "string",
-          "format": "uri"
+          "type": "string"
         },
         "passphrase": {
           "title": "Passphrase",
           "description": "lokale Adresse der Passphrasendatei",
-          "type": "string",
-          "format": "uri"
+          "type": "string"
         },
         "ca": {
           "title": "Zertifikatskette",
           "description": "lokale Adresse des Ordners der Zertifikatkette (cert_chain)",
-          "type": "string",
-          "format": "uri"
+          "type": "string"
         }
       }
     },
@@ -94,7 +91,7 @@
           "title": "Typ",
           "description": "Art der Datenbank",
           "type": "string",
-          "enum": [ "redis", "" ],
+          "enum": [ "redis", "cache" ],
           "enumNames": [ "REDIS", "Cache" ]
         },
         "port": {
