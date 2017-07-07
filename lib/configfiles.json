@@ -1,10 +1,11 @@
 {
-  "title": "Konfigurationsdateien",
+  "title": "Visualisierungskonfigurationen",
   "description": "Pfade und Bezeichner der Konfigurationsdateien",
-  "additionalProperties": false,
-  "required": [ "path", "name" ],
   "type": "array",
   "items": {
+    "title": "Konfigurationsdatei",
+    "additionalProperties": false,
+    "required": [ "path", "name" ],
     "type": "object",
     "properties": {
       "path": {

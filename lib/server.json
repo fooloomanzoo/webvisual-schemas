@@ -109,7 +109,7 @@
         },
         "db": {
           "title": "Name",
-          "description": "Name der Datenbank",
+          "description": "Tabellenname der Datenbank im Datenbankserver",
           "type": "string"
         }
       }
