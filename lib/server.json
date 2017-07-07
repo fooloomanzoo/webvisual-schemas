@@ -1,126 +1,128 @@
 {
+  "title": "Servereinstellungen",
+  "description": "Einstellungen des Webservers",
+  "required": [ "auth", "port", "ssl", "sessionStore" ],
+  "additionalProperties": false,
   "type": "object",
   "properties": {
     "auth": {
+      "title": "Authentifikation",
+      "description": "Einstellungen zur Authentifikation über die Webschnittstelle",
       "type": "object",
+      "additionalProperties": false,
       "properties": {
         "required": {
-          "type": [
-            "boolean",
-            "null"
-          ],
+          "title": "Ist Erforderlich",
+          "description": "Client wird über die Schnittstelle authentifiziert",
+          "type": "boolean",
           "default": false
         },
         "type": {
+          "title": "Typ",
+          "description": "Authentifizierungstyp",
+          "required": [ "type", "baseDN", "url" ],
           "type": "object",
           "properties": {
             "type": {
+              "title": "Art",
+              "description": "Name der Schnittstelle",
               "enum": [
                 "ldap"
               ]
             },
             "baseDN": {
+              "title": "baseDN",
+              "description": "Organisationsstruktur über LDAP",
               "type": "string"
             },
             "url": {
+              "title": "URL",
+              "description": "Adresse des Authentifizierungsservers",
               "type": "string"
             }
-          },
-          "additionalProperties": false,
-          "required": [
-            "type",
-            "baseDN",
-            "url"
-          ]
+          }
         }
       }
     },
     "port": {
+      "title": "Port",
+      "description": "Port des Webservers",
       "type": "number",
       "minimum": 0,
       "maximum": 65535,
       "default": 443
     },
     "ssl": {
+      "title": "SSL-Einstellungen",
+      "description": "Dateien die zur Verschlüsselung der Verbindung benötigt werden",
+      "additionalProperties": false,
+      "required": [ "cert", "key", "passphrase" ],
       "type": "object",
       "properties": {
         "cert": {
+          "title": "Zertifikat",
+          "description": "lokale Adresse der Zertifikatsdatei",
           "type": "string",
           "format": "uri"
         },
         "key": {
+          "title": "Schlüssel",
+          "description": "lokale Adresse der Schlüsseldatei",
           "type": "string",
           "format": "uri"
         },
         "passphrase": {
+          "title": "Passphrase",
+          "description": "lokale Adresse der Passphrasendatei",
           "type": "string",
           "format": "uri"
         },
         "ca": {
-          "type": [
-            "string",
-            "null"
-          ]
-        },
-        "requestCert": {
-          "type": [
-            "boolean",
-            "null"
-          ],
-          "default": true
-        },
-        "rejectUnauthorized": {
-          "type": [
-            "boolean",
-            "null"
-          ],
-          "default": false
+          "title": "Zertifikatskette",
+          "description": "lokale Adresse des Ordners der Zertifikatkette (cert_chain)",
+          "type": "string",
+          "format": "uri"
         }
-      },
-      "additionalProperties": false,
-      "required": [
-        "cert",
-        "key",
-        "passphrase"
-      ]
+      }
     },
     "sessionStore": {
+      "title": "Sessiondatenbank",
+      "description": "Art der Speicherung der Sessioncookies der Clients (Datenbank bevorzugt)",
+      "required": [ "type" ],
       "type": "object",
       "properties": {
-        "port": {
-          "type": "number",
-          "minimum": 0,
-          "maximum": 65535,
-          "default": 6379
-        },
-        "type": {
-          "enum": [
-            "redis",
-            "null"
-          ]
-        },
-        "host": {
-          "type": "string",
-          "format": "uri",
-          "default": "localhost"
-        },
-        "db": {
-          "type": ["string", "null", "number"]
+        "properties": {
+          "type": {
+            "title": "Typ",
+            "description": "Art der Datenbank",
+            "enum": [ "redis", "" ],
+            "enumNames": [ "REDIS", "Cache" ]
+          },
+          "port": {
+            "title": "Port",
+            "description": "Port des Datenbankservers",
+            "type": "number",
+            "minimum": 0,
+            "maximum": 65535
+          },
+          "host": {
+            "title": "Host",
+            "description": "Hostadresse des Datenbankservers",
+            "type": "string",
+            "default": "localhost"
+          },
+          "db": {
+            "title": "Name",
+            "description": "Name der Datenbank",
+            "type": "string"
+          }
         }
-      },
-      "additionalProperties": false,
-      "required": [
-        "type"
-      ]
+      }
     },
     "_tmpDir": {
-      "type": [
-        "string",
-        "null"
-      ]
+      "type": "string"
     }
   },
-  "additionalProperties": false,
   "default": {
     "auth": {
       "required": false,
@@ -135,9 +137,7 @@
       "cert": "./defaults/ssl/ca.crt",
       "key": "./defaults/ssl/ca.key",
       "passphrase": "./defaults/ssl/ca.pw.json",
-      "ca": "./defaults/ssl/ca",
-      "requestCert": true,
-      "rejectUnauthorized": false
+      "ca": "./defaults/ssl/ca"
     },
     "sessionStore": {
       "type": "redis",

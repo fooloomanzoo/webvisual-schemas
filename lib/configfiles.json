@@ -1,22 +1,28 @@
 {
+  "title": "Konfigurationsdateien",
+  "description": "Pfade und Bezeichner der Konfigurationsdateien",
+  "additionalProperties": false,
+  "required": [ "path", "name" ],
   "type": "array",
   "items": {
     "type": "object",
     "properties": {
       "path": {
+        "title": "Pfad",
+        "description": "Pfad zur Datei",
         "type": "string"
       },
       "name": {
+        "title": "Name",
+        "description": "Interner Name",
         "type": "string"
       },
       "title": {
-        "type": ["string", "null"]
+        "title": "Titel",
+        "description": "Anzuzeigender Titel",
+        "type": "string"
       }
-    },
-    "additionalProperties": false,
-    "required": [
-      "path", "name"
-    ]
+    }
   },
   "default": [
     {
