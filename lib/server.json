@@ -112,6 +112,12 @@
       "required": [
         "type"
       ]
+    },
+    "_tmpDir": {
+      "type": [
+        "string",
+        "null"
+      ]
     }
   },
   "additionalProperties": false,
