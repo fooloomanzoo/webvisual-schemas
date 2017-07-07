@@ -91,31 +91,29 @@
       "required": [ "type" ],
       "type": "object",
       "properties": {
-        "properties": {
-          "type": {
-            "title": "Typ",
-            "description": "Art der Datenbank",
-            "enum": [ "redis", "" ],
-            "enumNames": [ "REDIS", "Cache" ]
-          },
-          "port": {
-            "title": "Port",
-            "description": "Port des Datenbankservers",
-            "type": "number",
-            "minimum": 0,
-            "maximum": 65535
-          },
-          "host": {
-            "title": "Host",
-            "description": "Hostadresse des Datenbankservers",
-            "type": "string",
-            "default": "localhost"
-          },
-          "db": {
-            "title": "Name",
-            "description": "Name der Datenbank",
-            "type": "string"
-          }
+        "type": {
+          "title": "Typ",
+          "description": "Art der Datenbank",
+          "enum": [ "redis", "" ],
+          "enumNames": [ "REDIS", "Cache" ]
+        },
+        "port": {
+          "title": "Port",
+          "description": "Port des Datenbankservers",
+          "type": "number",
+          "minimum": 0,
+          "maximum": 65535
+        },
+        "host": {
+          "title": "Host",
+          "description": "Hostadresse des Datenbankservers",
+          "type": "string",
+          "default": "localhost"
+        },
+        "db": {
+          "title": "Name",
+          "description": "Name der Datenbank",
+          "type": "string"
         }
       }
     },
