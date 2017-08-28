@@ -41,6 +41,7 @@
               "description": "Messdaten aus Datei",
               "type": "array",
               "items": {
+                "title": "Verbindungseinstellungen",
                 "type": "object",
                 "additionalProperties": false,
                 "required": ["mode", "configfile", "path", "format", "encoding"],
@@ -144,6 +145,7 @@
               "description": "Messdaten über Datenbankserver",
               "type": "array",
               "items": {
+                "title": "Verbindungseinstellungen",
                 "type": "object",
                 "additionalProperties": false,
                 "required": ["mode", "configfile", "path", "format", "encoding"],
@@ -207,6 +209,7 @@
               "description": "Messdaten über UDP-Verbindung",
               "type": "array",
               "items": {
+                "title": "Verbindungseinstellungen",
                 "type": "object",
                 "additionalProperties": false,
                 "required": ["mode", "configfile", "path", "format", "encoding"],
