@@ -16,7 +16,8 @@
       "description": "Port des Datenbankservers",
       "type": "number",
       "minimum": 0,
-      "maximum": 65535
+      "maximum": 65535,
+      "multipleOf": 1
     },
     "host": {
       "title": "Host",
