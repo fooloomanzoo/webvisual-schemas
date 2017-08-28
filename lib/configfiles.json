@@ -81,7 +81,7 @@
                         "type": "number",
                         "minimum": 0,
                         "multipleOf": 1
-                      },
+                      }
                     },
                     "default": "./examples/config/test.json"
                   },
