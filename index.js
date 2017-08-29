@@ -1,5 +1,6 @@
 module.exports = {
   server: require('./lib/server.json'),
-  database: require('./lib/database.json'),
-  configfiles: require('./lib/configfiles.json')
+  configfiles: require('./lib/configfiles.json'),
+  connections: require('./lib/connections.json'),
+  locals: require('./lib/locals.json')
 }

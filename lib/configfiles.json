@@ -4,7 +4,7 @@
   "type": "array",
   "items": {
     "type": "object",
-    "additionalProperties": false,
+    "additionalItems": false,
     "required": ["name"],
     "properties": {
       "name": {
@@ -18,11 +18,19 @@
         "type": "string"
       },
       "paths": {
-        "title": "Pfad",
-        "description": "Anbindungen und Einstellungen der eingehenden Messdaten",
-        "type": "string",
-        "default": "./examples/config/test.json"
+        "type": "array",
+        "title": "Pfade",
+        "description": "Konfigurationsdateien der Anbindungen und Einstellungen der eingehenden Messdaten",
+        "additionalItems": true,
+        "items": {
+          "type": "string",
+          "format": "data-url"
+        }
       }
     }
-  }
+  },
+  "default": [{
+    "name": "",
+    "title": ""
+  }]
 }

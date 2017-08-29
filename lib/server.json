@@ -1,15 +1,60 @@
 {
+  "definitions": {
+    "database": {
+      "type": "object",
+      "additionalItems": true,
+      "required": ["type", "host", "port", "password"],
+      "properties": {
+        "type": {
+          "title": "Typ",
+          "description": "Art der Datenbank",
+          "type": "string",
+          "enum": ["redis"],
+          "enumNames": ["REDIS"]
+        },
+        "host": {
+          "title": "Host",
+          "description": "Hostadresse des Datenbankservers",
+          "type": "string",
+          "default": "localhost"
+        },
+        "port": {
+          "title": "Port",
+          "description": "Port des Datenbankservers",
+          "type": "number",
+          "minimum": 0,
+          "maximum": 65535,
+          "multipleOf": 1,
+          "default": 6379
+        },
+        "db": {
+          "title": "Nummer",
+          "description": "Tabellennummer der Datenbank im Datenbankserver",
+          "type": "number",
+          "minimum": 0,
+          "multipleOf": 1,
+          "default": 0
+        },
+        "password": {
+          "title": "Password",
+          "description": "zur Zeit nicht implementiert",
+          "type": "string",
+          "default": ""
+        }
+      }
+    }
+  },
+  "type": "object",
   "title": "Servereinstellungen",
   "description": "Einstellungen des Webservers",
   "required": [ "auth", "port", "ssl", "sessionStore" ],
-  "additionalProperties": false,
-  "type": "object",
+  "additionalItems": false,
   "properties": {
     "auth": {
       "title": "Authentifikation",
       "description": "Einstellungen zur Authentifikation über die Webschnittstelle",
       "type": "object",
-      "additionalProperties": false,
+      "additionalItems": false,
       "properties": {
         "required": {
           "title": "Ist Erforderlich",
@@ -56,7 +101,7 @@
     "ssl": {
       "title": "SSL-Einstellungen",
       "description": "Dateien die zur Verschlüsselung der Verbindung benötigt werden",
-      "additionalProperties": false,
+      "additionalItems": false,
       "required": [ "cert", "key", "passphrase" ],
       "type": "object",
       "properties": {
@@ -84,37 +129,40 @@
     },
     "sessionStore": {
       "title": "Sessiondatenbank",
-      "description": "Art der Speicherung der Sessioncookies der Clients (Datenbank bevorzugt)",
-      "required": [ "type" ],
+      "description": "Art der Speicherung der Sessioncookies der Clients",
+      "$ref": "#/definitions/database"
+    },
+    "database": {
       "type": "object",
+      "title": "Datenbank",
+      "description": "Einstellungen der Datenbank der Messdaten",
       "properties": {
-        "type": {
-          "title": "Typ",
-          "description": "Art der Datenbank",
-          "type": "string",
-          "enum": [ "redis", "cache" ],
-          "enumNames": [ "REDIS", "Cache" ]
-        },
-        "port": {
-          "title": "Port",
-          "description": "Port des Datenbankservers",
+        "maxCount": {
+          "title": "maximale Anzahl an Daten",
+          "description": "Zielwert an Daten, die gespeichert werden sollen",
           "type": "number",
           "minimum": 0,
-          "maximum": 65535,
-          "multipleOf": 1
+          "maximum": 1e7,
+          "multipleOf": 1,
+          "default": 86400
         },
-        "host": {
-          "title": "Host",
-          "description": "Hostadresse des Datenbankservers",
+        "cleanInterval": {
+          "title": "Aufräumintervall",
+          "description": "Interval in dem die Datenbank bereinigt werden soll (in ms)",
+          "type": "number",
+          "minimum": 0,
+          "multipleOf": 1000,
+          "default": 36e5
+        },
+        "encoding": {
+          "title": "Kodierung",
           "type": "string",
-          "default": "localhost"
-        },
-        "db": {
-          "title": "Nummer",
-          "description": "Tabellennummer der Datenbank im Datenbankserver",
-          "type": "number"
+          "enum": ["binary", "text"],
+          "enumNames": ["Binär (Messagepack)", "Text (JSON)"],
+          "default": "binary"
         }
-      }
+      },
+      "required": []
     },
     "_tmpDir": {
       "type": "string"
@@ -141,6 +189,11 @@
       "port": 6379,
       "host": "localhost",
       "db": 1
+    },
+    "database": {
+      "encoding": "binary",
+      "maxCount": 86400,
+      "cleanInterval": 36e5
     }
   }
 }
